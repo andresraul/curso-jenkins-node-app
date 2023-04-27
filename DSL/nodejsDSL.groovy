@@ -10,7 +10,7 @@ job('Aplicacion Node.js DSL') {
         scm('H/7 * * * *') //Configuramos in triguer que se ejecuta cada 7 minutos y si hay cambios en el repositorio vuelve a ejecutar el build
     }
     wrappers {
-        nodejs('nodejs') //Definimos el node instalado previamente que queremos utilizar
+        nodejs('nodejs14') //Definimos el node instalado previamente que queremos utilizar
     }
     steps {
         shell("npm install") //Instalamos los paquetes de node
