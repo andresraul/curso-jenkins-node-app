@@ -1,9 +1,9 @@
 job('Aplicacion Node.js Docker DSL') {
     description('Aplicación Node JS Docker DSL para el curso de Jenkins')
     scm {
-        git('https://github.com/macloujulian/nodejsapp.git', 'master') { node ->
-            node / gitConfigName('macloujulian')
-            node / gitConfigEmail('macloujulian@gmail.com')
+        git('https://github.com/andresraul/curso-jenkins-node-app.git', 'main') { node ->
+            node / gitConfigName('Andres Mateo')
+            node / gitConfigEmail('andresraul@gmail.com')
         }
     }
     triggers {
@@ -14,10 +14,10 @@ job('Aplicacion Node.js Docker DSL') {
     }
     steps {
         dockerBuildAndPublish {
-            repositoryName('macloujulian/nodejsapp')
-            tag('${GIT_REVISION,length=7}')
-            registryCredentials('docker-hub')
-            forcePull(false)
+            repositoryName('andresrmateo/nodejsapp') //Nombre del repositorio
+            tag('${GIT_REVISION,length=7}') // Nombre de la etiqueta. De esta forma, toma el nombre único que le prevee git
+            registryCredentials('docker-hub') // Establecemos el nombre de las credenciales de docker hub que hemos configurado previamente
+            forcePull(false) //force pull se encarga de actualizar la imagen antes de contruirla, para asegurarse que es la correcta
             createFingerprints(false)
             skipDecorate()
         }
