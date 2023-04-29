@@ -16,8 +16,8 @@ job('Aplicacion Node.js Docker DSL') {
         dockerBuildAndPublish {
             repositoryName('andresrmateo/nodejsapp') //Nombre del repositorio
             tag('${GIT_REVISION,length=7}') // Nombre de la etiqueta. De esta forma, toma el nombre único que le prevee git
-            registryCredentials('docker-hub') // Establecemos el nombre de las credenciales de docker hub que hemos configurado previamente
-            forcePull(false) //force pull se encarga de actualizar la imagen antes de contruirla, para asegurarse que es la correcta
+            registryCredentials('docker-hub') // Establecemos el nombre de las credenciales globales de docker hub que debemos configurar previamente
+            forcePull(false) //force pull se encarga de actualizar la imagen antes de contruirla(si está en true), para asegurarse que es la correcta
             createFingerprints(false)
             skipDecorate()
         }
